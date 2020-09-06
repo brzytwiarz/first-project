@@ -10,15 +10,18 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class City {
+
+public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(length = 64, nullable = false)
-    private String name;
+    private String author;
 
     @Column(length = 64, nullable = false)
-    private String country;
+    private String name;
+
+
 }
