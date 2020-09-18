@@ -1,5 +1,6 @@
 package io.mbab.sda.groupproject.repository;
 
+import io.mbab.sda.groupproject.entity.Album;
 import io.mbab.sda.groupproject.entity.Song;
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +17,8 @@ public class SongRepository implements CrudRepository<Song, Integer> {
         return em.createQuery("FROM Song", Song.class)
                 .getResultList();
     }
+
+
 
     @Override
     public Song findById(Integer id) {
@@ -37,4 +40,11 @@ public class SongRepository implements CrudRepository<Song, Integer> {
 
     @Override
     public void delete(Integer o) {}
+
+    public Album getAlbumById(Integer id) {
+        em.getTransaction().begin();
+        Album album = em.find(Album.class, id);
+        em.getTransaction().commit();
+        return album;
+    }
 }

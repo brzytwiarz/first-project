@@ -5,6 +5,7 @@ import io.mbab.sda.groupproject.repository.AlbumRepository;
 import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
 import io.mbab.sda.groupproject.repository.SongRepository;
 
+import javax.persistence.EntityManager;
 import java.util.HashMap;
 import java.util.Map;
 

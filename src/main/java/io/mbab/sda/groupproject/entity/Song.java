@@ -15,6 +15,7 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
 
     @Column(length = 64, nullable = false)
@@ -25,4 +26,10 @@ public class Song {
 
     @Column(length = 64, nullable = false)
     private String duration;
+
+    @ManyToOne
+    @JoinColumn(name = "album_id")
+    private Album albums;
+
+
 }

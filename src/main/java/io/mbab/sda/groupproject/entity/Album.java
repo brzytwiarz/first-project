@@ -3,6 +3,7 @@ package io.mbab.sda.groupproject.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 public class Album {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

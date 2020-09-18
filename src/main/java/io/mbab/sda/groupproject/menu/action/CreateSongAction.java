@@ -8,6 +8,9 @@ import io.mbab.sda.groupproject.repository.AlbumRepository;
 import io.mbab.sda.groupproject.repository.SongRepository;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.EntityManager;
+import javax.swing.text.html.parser.Entity;
+
 @RequiredArgsConstructor
 public class CreateSongAction implements MenuAction {
 
@@ -18,6 +21,8 @@ public class CreateSongAction implements MenuAction {
     @Override
     public void execute() {
         System.out.println("0) Przejdź do poprzedniego menu");
+
+
 
         System.out.println("Podaj nazwę Utworu:");
         var input = scanner.nextLine();
@@ -33,7 +38,16 @@ public class CreateSongAction implements MenuAction {
         if (pressedZero(input)) return;
         input = scanner.nextLine();
         builder.duration(input);
+
+        System.out.println("Podaj ID albumu:");
+        if (pressedZero(input)) return;
+        int inputInt = scanner.nextInt();
+        Album album = repository.getAlbumById(inputInt);
+        builder.albums(album);
+
         var song = builder.build();
+
+
 
 
         repository.create(song);

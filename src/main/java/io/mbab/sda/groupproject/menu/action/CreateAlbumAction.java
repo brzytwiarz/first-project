@@ -1,10 +1,15 @@
 package io.mbab.sda.groupproject.menu.action;
 
 import io.mbab.sda.groupproject.entity.Album;
+import io.mbab.sda.groupproject.entity.Song;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import io.mbab.sda.groupproject.repository.AlbumRepository;
 import lombok.RequiredArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 public class CreateAlbumAction implements MenuAction {
@@ -30,6 +35,8 @@ public class CreateAlbumAction implements MenuAction {
         input = scanner.nextLine();
 
         if (pressedZero(input)) return;
+
+
 
         var album = builder.author(input).build();
 
